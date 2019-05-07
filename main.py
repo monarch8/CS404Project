@@ -30,7 +30,20 @@ def match(course, professor):
 
     return rating
 
+#check every course
+for course in courses:
+    score = 0
+    prof = 0
+    #check every professor
+    for professor in professors:
+        tempScore = match(course, professor)
+        if score < tempScore:
+            score = tempScore
+            prof = professor
 
+
+    print(str(prof) + " is teaching " + str(course))
+    professors.pop(prof)
 
 
 
