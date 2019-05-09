@@ -35,21 +35,14 @@ expertiseTable = {1: {1: 5, 2: 1, 3: 2, 4: 5, 5: 5, 6: 1, 7: 1},
                   4: {1: 5, 2: 2, 3: 2, 4: 2, 5: 5, 6: 5, 7: 3},
                   5: {1: 2, 2: 2, 3: 5, 4: 4, 5: 2, 6: 5, 7: 4}}
 
+
 def match(course, professor):
 
-    tempCourseComp = []
-    for i in range(1, 8):
-        tempCourseComp.append(courseTopic[course][i])
-
-    tempProfKnow = []
-    for i in range(1, 8):
-        tempProfKnow.append(expertiseTable[professor][i])
-
     rating = 0
-    for i in range(0, 7):
-        rating = rating + (tempCourseComp[i] * tempProfKnow[i])
-
+    for i in range(1, 8):
+        rating += (courseTopic[course][i] * expertiseTable[professor][i])
     return rating
+
 
 def main():
     #check every course
