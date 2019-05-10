@@ -1,3 +1,9 @@
+##########
+# By Connor Larson and Connor Marchand
+# https://github.com/monarch8/CS404Project
+#
+#########
+
 import os
 
 # Course id: Course Name
@@ -56,10 +62,31 @@ def main():
                 score = tempScore
                 prof = professor
 
-
-        print(str(prof) + " is teaching " + str(course))
+        print(professors[prof] + " is teaching " +
+              str(course) + ': ' + courses[course])
         professors.pop(prof)
 
+def main2():
+    #check every course
+    profUsed = []
+    for course in courses:
+        score = 0
+        prof = 0
+        #check every professor
+        for professor in professors:
+            tempScore = match(course, professor)
+            if score < tempScore:
+                score = tempScore
+                prof = professor
+        profUsed.append(prof)
 
-main()
+        print(professors[prof] + " is teaching " +
+              str(course) + ': ' + courses[course])
+
+        if profUsed.count(prof) >= 2:
+            professors.pop(prof)
+
+
+
+main2()
 
